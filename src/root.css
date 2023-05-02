@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rainbow {
+    animation: rb 2s infinite linear;
+    font-size: xx-large;
+    margin: auto;
+}
+
+.rainbow:hover {
+    animation: rb 8s infinite linear;
+}
+
+.rainbow::after {
+    content: "<-";
+    font-size: larger;
+    font-family: fantasy, monospace;
+    animation: swipe 1.5s infinite ease-in-out alternate-reverse;
+}
+
+.rainbow::before {
+    content: "->";
+    font-size: larger;
+    font-family: fantasy, monospace;
+    animation: swipe 1.5s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes rb {
+    from { color: red; }
+    10% { color: orange; }
+    20% { color: yellow; }
+    30% { color: green; }
+    50% { color: turquoise; }
+    70% { color: blue; }
+    80% { color: violet; }
+    90% { color: pink; }
+    to { color: red; }
+}
+
+@keyframes swipe {
+    from { margin-left: 0px; margin-right: 0px }
+    to { margin-left: 20px; margin-right: 20px }
+}
