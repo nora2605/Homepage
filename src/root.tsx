@@ -1,7 +1,6 @@
 // @refresh reload
 import { Suspense } from "solid-js";
 import {
-  useLocation,
   A,
   Body,
   ErrorBoundary,
@@ -12,9 +11,16 @@ import {
   Routes,
   Scripts,
   Title,
+  useLocation,
 } from "solid-start";
 import "./root.css";
-import { faGithub, faPatreon, faTwitter, faSoundcloud, faBandcamp } from "@fortawesome/free-brands-svg-icons";
+import {
+  faBandcamp,
+  faGithub,
+  faPatreon,
+  faSoundcloud,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export default function Root() {
@@ -27,7 +33,7 @@ export default function Root() {
     { label: "Games", href: "/games" },
     { label: "Books", href: "/books" },
     { label: "Blog", href: "https://blog.luemir.ml", external: true },
-    { label: "About", href: "/about" }
+    { label: "About", href: "/about" },
   ];
 
   const socialLinks = [
@@ -49,10 +55,27 @@ export default function Root() {
         <Title>SolidStart - With TailwindCSS</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta property="og:title" content={`Lümi Home - ${location.pathname === "/" ? "Home" : location.pathname.substring(1).toUpperCase()}`} />
-        <Meta property="og:description" content={`literally me when ${location.pathname === "/" ? "Home" : location.pathname.substring(1).toUpperCase()}`} />
+        <Meta
+          property="og:title"
+          content={`Lümi Home - ${
+            location.pathname === "/"
+              ? "Home"
+              : location.pathname.substring(1).toUpperCase()
+          }`}
+        />
+        <Meta
+          property="og:description"
+          content={`literally me when ${
+            location.pathname === "/"
+              ? "Home"
+              : location.pathname.substring(1).toUpperCase()
+          }`}
+        />
         <Meta property="og:image" content={`/favicon.ico`} />
-        <Meta property="og:url" content={"https://luemir.ml" + location.pathname} />
+        <Meta
+          property="og:url"
+          content={"https://luemir.ml" + location.pathname}
+        />
         <Meta property="og:site_name" content="Lümi Home" />
       </Head>
       <Body>
@@ -62,15 +85,24 @@ export default function Root() {
               <nav class="bg-black border-b border-gray-800">
                 <div class="flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div class="flex justify-between h-16">
-                      <div class="flex-shrink-0 flex items-center">
-                        <img class="w-10 h-10 m-2" src="favicon.ico" elementtiming={""} fetchpriority={"high"} />
-                        <A class="max-6-xs text-3xl text-sky-300 font-thin uppercase my-16" href="/">
-                          Lümir's home
-                        </A>
-                      </div>
-                      <div class="sm:-my-px ml-6 sm:flex space-x-3">
-                        {menuItems.map((item) =>
-                          item.external ? (
+                    <div class="flex-shrink-0 flex items-center">
+                      <img
+                        class="w-10 h-10 m-2"
+                        src="favicon.ico"
+                        elementtiming={""}
+                        fetchpriority={"high"}
+                      />
+                      <A
+                        class="max-6-xs text-3xl text-sky-300 font-thin uppercase my-16"
+                        href="/"
+                      >
+                        Lümir's home
+                      </A>
+                    </div>
+                    <div class="sm:-my-px ml-6 sm:flex space-x-3">
+                      {menuItems.map((item) =>
+                        item.external
+                          ? (
                             <a
                               class="inline-flex items-center transition px-1 pt-1 border-b-2 text-sm font-medium text-red-300 border-transparent hover:border-gray-500"
                               href={item.href}
@@ -79,16 +111,19 @@ export default function Root() {
                             >
                               {item.label}
                             </a>
-                          ) : (
+                          )
+                          : (
                             <A
-                              class={`${active(item.href)} inline-flex transition items-center px-1 pt-1 border-b-2 text-sm font-medium text-gray-100`}
+                              class={`${
+                                active(item.href)
+                              } inline-flex transition items-center px-1 pt-1 border-b-2 text-sm font-medium text-gray-100`}
                               href={item.href}
                             >
                               {item.label}
                             </A>
                           )
-                        )}
-                      </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </nav>
@@ -106,11 +141,20 @@ export default function Root() {
                   </div>
                   <div class="flex space-x-1">
                     {socialLinks.map((link) => (
-                      <a href={link.href} target="_blank" rel="noopener noreferrer">
-                        <svg class="w-8 h-8 text-gray-400 hover:text-white transition fill-gray-400 hover:fill-white"
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <svg
+                          class="w-8 h-8 text-gray-400 hover:text-white transition fill-gray-400 hover:fill-white"
                           viewBox="0 0 700 500"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path d={link.icon.icon.toString().match(/M.*/)?.toString()} />
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d={link.icon.icon.toString().match(/M.*/)
+                              ?.toString()}
+                          />
                         </svg>
                       </a>
                     ))}

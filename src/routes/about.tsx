@@ -15,12 +15,12 @@ export default function About() {
         collection with some knowledge.
       </p>
       <A
-          href="https://pronouns.page/@nora2605"
-          target="_blank"
-          class="rainbow"
-        >
-          Check out my GODDAMN LIBERAL PRONOUNS
-        </A>
+        href="https://pronouns.page/@nora2605"
+        target="_blank"
+        class="rainbow"
+      >
+        Check out my GODDAMN LIBERAL PRONOUNS
+      </A>
       <h2 class="text-2xl font-bold mb-2 center spin">some banger info</h2>
       <p class="text-lg mb-8 text-gray-400">
         I've always had a passion for music, art, and language. I started
@@ -40,7 +40,7 @@ export default function About() {
         what I do that I finish it in 2 weeks but... until then you gotta wait
         or help me yourself. mwew
       </p>
-      <h2 class="text-2xl font-bold mb-2 spin"> you should Contact Me now!</h2>
+      <h2 class="text-2xl font-bold mb-2 spin">you should Contact Me now!</h2>
       <ul class="list-disc list-inside mb-8">
         <li>
           <A
