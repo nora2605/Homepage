@@ -1,9 +1,8 @@
 import { A } from "solid-start";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
   return (
-    <main class="text-gray-100 relative min-h-screen bg-gray-800 container px-4 mx-auto pt-24">
+    <main class="text-gray-100 px-4 mx-auto pt-24 justify-center self-center justify-items-center content-center">
       <h1 class="spin text-4xl font-bold mb-4 text-white">About Me</h1>
       <p class="text-lg mb-8 text-gray-400">
         Hi, I'm Nora, I'm a hobbyist composer/musician, artist, programmer,
@@ -21,7 +20,7 @@ export default function About() {
       >
         Check out my GODDAMN LIBERAL PRONOUNS
       </A>
-      <h2 class="text-2xl font-bold mb-2 center spin">some banger info</h2>
+      <h2 class="text-2xl font-bold mb-2 spin">some banger info</h2>
       <p class="text-lg mb-8 text-gray-400">
         I've always had a passion for music, art, and language. I started
         playing piano at a young age, and have since expanded my repertoire to
