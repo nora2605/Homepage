@@ -10,7 +10,7 @@ export default function Header() {
     { label: "Open Source", href: "/open-source" },
     { label: "Games", href: "/games" },
     { label: "Books", href: "/books" },
-    { label: "Blog", href: "https://blog.luemir.ml", external: true },
+    { label: "Blog", href: "https://blog.luemir.xyz", external: true },
     { label: "About", href: "/about" },
   ];
   const location = useLocation();

@@ -43,7 +43,7 @@ export default function Root() {
         <Meta property="og:image" content={`/favicon.ico`} />
         <Meta
           property="og:url"
-          content={"https://luemir.ml" + location.pathname}
+          content={"https://luemir.xyz" + location.pathname}
         />
         <Meta property="og:site_name" content="Lümi Home" />
       </Head>
