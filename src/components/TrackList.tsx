@@ -21,7 +21,7 @@ export default function TrackList({ tracks }: { tracks: Track[] }) {
     const sortedTracks = createMemo(() =>
     tracks
       .filter((track) =>
-        track.name.toLowerCase().includes(searchQuery().toLowerCase())
+        track.title.toLowerCase().includes(searchQuery().toLowerCase())
       )
       .sort((a, b) => {
         const compareValueA = a[sortKey() as keyof Track]?.toLocaleString() ?? '';
@@ -90,7 +90,7 @@ export default function TrackList({ tracks }: { tracks: Track[] }) {
 
 export interface Track {
     id: string,
-    name: string,
+    title: string,
     album?: string,
     genre?: string,
     duration?: number,

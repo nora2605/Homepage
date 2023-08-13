@@ -17,7 +17,7 @@ export default function TrackDetail(props: { track: Track; displayMode: "list" |
           <div class="w-1/4">
             <img
               src={isMediaAvailable('image') ? `${apiroot}/music/${props.track.id}/preview` : '/musicplc.png'}
-              alt={track().name}
+              alt={track().title}
               class="w-full h-auto rounded"
               elementtiming={""}
               fetchpriority={"high"}
@@ -26,7 +26,7 @@ export default function TrackDetail(props: { track: Track; displayMode: "list" |
           <div class="w-3/4 pl-4">
             <div class="flex flex-col justify-between h-full">
               <div>
-                <h2 class="text-xl font-semibold mb-2">{track().name}</h2>
+                <h2 class="text-xl font-semibold mb-2">{track().title}</h2>
                 <p class="text-gray-300 mb-1">{track().album}</p>
                 <p class="text-gray-300 mb-1">Year: {track().year}</p>
                 <p class="text-gray-300">Genre: {track().genre}</p>
@@ -59,7 +59,7 @@ export default function TrackDetail(props: { track: Track; displayMode: "list" |
       </Show>
       <Show when={props.displayMode === "list"}>
         <div class="p-4 border-b border-gray-600 transition hover:bg-gray-700 cursor-pointer border border-gray-600 shadow-md transform hover:scale-105">
-          <h2 class="text-xl font-semibold mb-2">{track().name}</h2>
+          <h2 class="text-xl font-semibold mb-2">{track().title}</h2>
           <p class="text-gray-400 mb-1">Year: {track().year}</p>
           <p class="text-gray-400">Genre: {track().genre}</p>
           <p class="text-gray-400">Opus Number: {track().opusNumber}</p>

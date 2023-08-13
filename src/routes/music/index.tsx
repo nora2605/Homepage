@@ -1,7 +1,7 @@
 import { createResource } from "solid-js";
 import TrackList from "~/components/TrackList";
 
-export const apiroot = 'https://norapi.vercel.app';
+export const apiroot = 'https://api.luemir.xyz';
 
 export default function About() {
   const [tracks] = createResource(() => fetch(apiroot + '/music/list').then(x => x.json()));
