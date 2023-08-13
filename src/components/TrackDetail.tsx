@@ -1,14 +1,10 @@
 import { createResource, Show, createMemo } from 'solid-js';
 import { Track } from "./TrackList";
 import { apiroot } from "~/root";
+import AudioPlayer from './AudioPlayer';
 
 export default function TrackDetail(props: { track: Track; displayMode: "list" | "widget" }) {
-  // fetch full track info
-  const [trackFetcher] = createResource(() => fetch(`${apiroot}/music/${props.track.id}`).then(x => x.json()))
-
-  const track = createMemo(() => {
-    return trackFetcher() ?? { 'id': 'none', 'title': 'Loading...' };
-  });
+  const track = () => props.track;
 
   const isMediaAvailable = (mediaType: keyof Track) => !!track()[mediaType];
 
@@ -33,7 +29,6 @@ export default function TrackDetail(props: { track: Track; displayMode: "list" |
                 <p class="text-gray-300 mb-1">Year: {track().year}</p>
                 <p class="text-gray-300">Genre: {track().genre}</p>
                 <p class="text-gray-300">Opus Number: {track().opusNumber}</p>
-                {/* Add other details */}
               </div>
               <div>
                 <p class="text-gray-400 mt-4">{track().description}</p>
@@ -80,6 +75,9 @@ export default function TrackDetail(props: { track: Track; displayMode: "list" |
                   </a>
                 )}
               </div>
+              {isMediaAvailable('audio') && (
+                <AudioPlayer src={`${apiroot}/music/${props.track.id}/audio`} class="mt-4" />
+              )}
             </div>
           </div>
         </div>
@@ -89,7 +87,9 @@ export default function TrackDetail(props: { track: Track; displayMode: "list" |
           <h2 class="text-xl font-semibold mb-2">{track().title}</h2>
           <p class="text-gray-400 mb-1">Year: {track().year}</p>
           <p class="text-gray-400">Genre: {track().genre}</p>
-          {/* Add other details */}
+          {isMediaAvailable('audio') && (
+            <AudioPlayer src={`${apiroot}/music/${props.track.id}/audio`} class="mt-4" />
+          )}
         </div>
       </Show>
     </>

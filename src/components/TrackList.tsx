@@ -26,13 +26,20 @@ export default function TrackList() {
         track.title.toLowerCase().includes(searchQuery().toLowerCase())
       )
       .sort((a, b) => {
-        const compareValueA = a[sortKey() as keyof Track]?.toLocaleString() ?? '';
-        const compareValueB = b[sortKey() as keyof Track]?.toLocaleString() ?? '';
+        console.log(sortKey());
+        console.log(sortDirection());
+        if (sortKey() === 'year') {
+          if (a.year === undefined || b.year === undefined) return 0;
+          return (sortDirection() === 'asc' ? Math.sign(a.year - b.year) : Math.sign(b.year - a.year));
+        } else {
+        const compareValueA = a[sortKey() as keyof Track]?.toString() ?? '';
+        const compareValueB = b[sortKey() as keyof Track]?.toString() ?? '';
         if (sortDirection() === 'asc') {
           return compareValueA.localeCompare(compareValueB);
         } else {
           return compareValueB.localeCompare(compareValueA);
         }
+      }
       })
     });
   onCleanup(() => {
@@ -41,8 +48,6 @@ export default function TrackList() {
 
   createEffect(() => {
     localStorage.setItem('displayMode', displayMode());
-    console.log(tracks());
-    console.log(sortedTracks());
   });
 
   return (
@@ -81,9 +86,7 @@ export default function TrackList() {
       <ul>
         <For each={sortedTracks()}>{(track) => (
             <li class="mb-4">
-              <A href={`/music/${track.id}`}>
-                <TrackDetail track={track} displayMode={displayMode() as 'list'|'widget'} />
-              </A>
+              <TrackDetail track={track} displayMode={displayMode() as 'list'|'widget'} />
             </li>
         )}
         </For>
