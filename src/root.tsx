@@ -1,5 +1,5 @@
 // @refresh reload
-import { Suspense } from "solid-js";
+import { Suspense, createResource } from "solid-js";
 import {
   Body,
   ErrorBoundary,
@@ -15,6 +15,8 @@ import {
 import "./root.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
+export const apiroot = 'https://api.luemir.xyz/api';
 
 export default function Root() {
   const location = useLocation();

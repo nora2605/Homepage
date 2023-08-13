@@ -1,9 +1,11 @@
-import { For, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js';
-import { A, useNavigate } from 'solid-start';
+import { For, Show, createEffect, createMemo, createResource, createSignal, onCleanup, onMount } from 'solid-js';
+import { A } from 'solid-start';
 import TrackDetail from './TrackDetail';
+import { apiroot } from '~/root';
 
-export default function TrackList({ tracks }: { tracks: Track[] }) {
-    const navigate = useNavigate();
+export default function TrackList() {
+    const [tracks] = createResource(() => fetch(apiroot + '/music/list').then(x => x.json()));
+
     const [searchQuery, setSearchQuery] = createSignal('');
     const [sortKey, setSortKey] = createSignal('title'); // Default sorting by title
     const [sortDirection, setSortDirection] = createSignal('asc'); // Default sorting in ascending order
@@ -17,9 +19,9 @@ export default function TrackList({ tracks }: { tracks: Track[] }) {
       localStorage.setItem('displayMode', mode);
       return mode;
     };
-  
-    const sortedTracks = createMemo(() =>
-    tracks
+
+    const sortedTracks = createMemo(() => {
+      return ((tracks() ?? []) as Track[])
       .filter((track) =>
         track.title.toLowerCase().includes(searchQuery().toLowerCase())
       )
@@ -32,13 +34,15 @@ export default function TrackList({ tracks }: { tracks: Track[] }) {
           return compareValueB.localeCompare(compareValueA);
         }
       })
-  );
+    });
   onCleanup(() => {
     localStorage.setItem('displayMode', displayMode());
   });
 
   createEffect(() => {
     localStorage.setItem('displayMode', displayMode());
+    console.log(tracks());
+    console.log(sortedTracks());
   });
 
   return (
@@ -76,7 +80,7 @@ export default function TrackList({ tracks }: { tracks: Track[] }) {
       </div>
       <ul>
         <For each={sortedTracks()}>{(track) => (
-            <li id={track.id} class="mb-4">
+            <li class="mb-4">
               <A href={`/music/${track.id}`}>
                 <TrackDetail track={track} displayMode={displayMode() as 'list'|'widget'} />
               </A>
