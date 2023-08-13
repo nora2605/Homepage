@@ -1,7 +1,6 @@
 import { For, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js';
 import { A, useNavigate } from 'solid-start';
 import TrackDetail from './TrackDetail';
-import { Dynamic } from 'solid-js/web';
 
 export default function TrackList({ tracks }: { tracks: Track[] }) {
     const navigate = useNavigate();
