@@ -38,7 +38,7 @@ export default function TrackDetail(
               <div>
                 <p class="text-gray-400 mt-4">{track().description}</p>
               </div>
-              <div class="flex flex-wrap justify-center overflow-hidden mt-4">
+              <div class="flex flex-wrap overflow-hidden mt-4">
                 <Show when={isMediaAvailable("audio")}>
                   <a
                     href={`${apiroot}/music/${props.track.id}/audio`}

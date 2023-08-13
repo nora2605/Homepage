@@ -14,7 +14,9 @@ export default function TrackPage({ track }: { track: Track }) {
           <div class="flex-row">
             <div class="flex-grow">
               <Show when={isMediaAvailable('score')} fallback={
-                <img src={`${apiroot}/music/${track.id}/preview`} title="Track Image" class="w-full min-h-[800px] border-2 border-gray-600 rounded-md" elementtiming={""} fetchpriority={"auto"} />
+                <img src={isMediaAvailable("image")
+                ? `${apiroot}/music/${track.id}/preview`
+                : "/musicplc.png"} title="Track Image" class="w-full min-h-[800px] border-2 border-gray-600 rounded-md" elementtiming={""} fetchpriority={"auto"} />
               }>
                 <iframe
                   src={`${apiroot}/music/${track.id}/score`}
