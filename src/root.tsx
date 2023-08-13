@@ -31,7 +31,7 @@ export default function Root() {
           content={`Lümi Home - ${
             location.pathname === "/"
               ? "Home"
-              : location.pathname.substring(1).toUpperCase()
+              : location.pathname.split('/').slice(-1)
           }`}
         />
         <Meta
@@ -39,14 +39,14 @@ export default function Root() {
           content={`literally me when ${
             location.pathname === "/"
               ? "Home"
-              : location.pathname.substring(1).toUpperCase()
+              : location.pathname.split('/').slice(-1)
           }`}
         />
         <Meta
-          property="og:color"
+          property="theme-color"
           content={`#11b2ff`}
         />
-        <Meta property="og:image" content={`/favicon.ico`} />
+        <Meta property="og:image" content={`/favicon.png`} />
         <Meta
           property="og:url"
           content={"https://luemir.xyz" + location.pathname}
