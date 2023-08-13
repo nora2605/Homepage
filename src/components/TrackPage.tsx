@@ -13,11 +13,20 @@ export default function TrackPage({ track }: { track: Track }) {
         <div class="flex-grow">
           <div class="flex-row">
             <div class="flex-grow">
-              <Show when={isMediaAvailable('score')} fallback={
-                <img src={isMediaAvailable("image")
-                ? `${apiroot}/music/${track.id}/preview`
-                : "/musicplc.png"} title="Track Image" class="w-full min-h-[800px] border-2 border-gray-600 rounded-md" elementtiming={""} fetchpriority={"auto"} />
-              }>
+              <Show
+                when={isMediaAvailable("score")}
+                fallback={
+                  <img
+                    src={isMediaAvailable("image")
+                      ? `${apiroot}/music/${track.id}/preview`
+                      : "/musicplc.png"}
+                    title="Track Image"
+                    class="w-full min-h-[800px] border-2 border-gray-600 rounded-md"
+                    elementtiming={""}
+                    fetchpriority={"auto"}
+                  />
+                }
+              >
                 <iframe
                   src={`${apiroot}/music/${track.id}/score`}
                   title="Score PDF"
@@ -28,15 +37,50 @@ export default function TrackPage({ track }: { track: Track }) {
           </div>
         </div>
         <div class="p-4 bg-gray-900 rounded-md basis-1/3">
-        <div class="text-white border bg-gray-700 p-5 mb-6 break-normal rounded-md">
-          <p class="mb-2">Album: {track.album}</p>
-          <p class="mb-2">Genre: {track.genre}</p>
-          <p class="mb-2">Year: {track.year}</p>
-          <p class="mb-2">Opus Number: {track.opusNumber}</p>
-          <p class="mb-2">Duration: {track.duration} seconds</p>
-          <p class="mb-2">Description: {track.description}</p>
-          <p class="mb-2">Original: {track.original ? 'Yes' : 'No'}</p>
-        </div>
+          <div class="text-white border bg-gray-700 p-5 mb-6 break-normal rounded-md">
+            <p class="mb-2">
+              <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
+                Album:
+              </b>{" "}
+              {track.album}
+            </p>
+            <p class="mb-2">
+              <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
+                Genre:
+              </b>{" "}
+              {track.genre}
+            </p>
+            <p class="mb-2">
+              <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
+                Year:
+              </b>{" "}
+              {track.year}
+            </p>
+            <p class="mb-2">
+              <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
+                Opus Number:
+              </b>{" "}
+              {track.opusNumber}
+            </p>
+            <p class="mb-2">
+              <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
+                Duration:
+              </b>{" "}
+              {track.duration} seconds
+            </p>
+            <p class="mb-2">
+              <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
+                Description:
+              </b>{" "}
+              {track.description}
+            </p>
+            <p class="mb-2">
+              <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
+                Original:
+              </b>{" "}
+              {track.original ? "Yes" : "No"}
+            </p>
+          </div>
           <Show when={isMediaAvailable("audio")}>
             <a
               href={`${apiroot}/music/${track.id}/audio`}
