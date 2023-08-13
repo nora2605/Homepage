@@ -4,7 +4,7 @@ function AudioPlayer({ src, ...props }: {src: string, class: string}) {
   const [isPlaying, setIsPlaying] = createSignal(false);
   const [currentTime, setCurrentTime] = createSignal(0);
   const [duration, setDuration] = createSignal(0);
-  let audioRef: HTMLAudioElement;
+  let audioRef: HTMLAudioElement = {} as HTMLAudioElement;
 
   const togglePlay = () => {
     const audioElement = audioRef;
