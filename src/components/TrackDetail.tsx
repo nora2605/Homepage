@@ -14,7 +14,7 @@ export default function TrackDetail(
   return (
     <>
       <Show when={props.displayMode === "widget"}>
-        <div class="flex p-4 bg-gray-800 text-white transition hover:bg-gray-700 border border-gray-600 shadow-md transform hover:scale-105">
+        <div class="flex p-4 bg-gray-800 text-white transition hover:bg-gray-700 border border-gray-600 shadow-md transform">
           <div class="w-1/4">
             <img
               src={isMediaAvailable("image")
@@ -156,7 +156,7 @@ export default function TrackDetail(
         </div>
       </Show>
       <Show when={props.displayMode === "list"}>
-      <div class="p-4 bg-gray-800 text-white transition hover:bg-gray-700 border border-gray-600 shadow-md transform hover:scale-105">
+      <div class="p-4 bg-gray-800 text-white transition hover:bg-gray-700 border border-gray-600 shadow-md transform">
         <A href={`/music/${props.track.id}`}>
           <h2 class="text-xl font-semibold mb-2">{track().title}</h2>
           <p class="text-gray-400 mb-1">Year: {track().year}</p>

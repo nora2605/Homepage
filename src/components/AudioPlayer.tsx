@@ -107,7 +107,7 @@ how to remove the virtical space around the range input in IE*/
 }
 `}
       </style>
-      <div class="flex items-center justify-between bg-gray-900 p-4 rounded-lg shadow-md transition transform hover:scale-105">
+      <div class="flex items-center justify-between bg-gray-900 p-4 rounded-lg shadow-md transition transform">
         <button
           class={`px-3 py-1 rounded-md ${isPlaying() ? 'bg-gray-700' : 'bg-gray-600'} text-white`}
           onClick={togglePlay}

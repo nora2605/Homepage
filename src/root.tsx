@@ -42,6 +42,10 @@ export default function Root() {
               : location.pathname.substring(1).toUpperCase()
           }`}
         />
+        <Meta
+          property="og:color"
+          content={`#11b2ff`}
+        />
         <Meta property="og:image" content={`/favicon.ico`} />
         <Meta
           property="og:url"
