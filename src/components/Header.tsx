@@ -29,7 +29,7 @@ export default function Header() {
             <div class="flex-shrink-0 flex items-center">
               <img
                 class="w-10 h-10 m-2"
-                src="favicon.ico"
+                src="/favicon.ico"
                 elementtiming={""}
                 fetchpriority={"high"}
               />

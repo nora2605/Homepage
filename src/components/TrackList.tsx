@@ -26,8 +26,6 @@ export default function TrackList() {
         track.title.toLowerCase().includes(searchQuery().toLowerCase())
       )
       .sort((a, b) => {
-        console.log(sortKey());
-        console.log(sortDirection());
         if (sortKey() === 'year') {
           if (a.year === undefined || b.year === undefined) return 0;
           return (sortDirection() === 'asc' ? Math.sign(a.year - b.year) : Math.sign(b.year - a.year));
@@ -52,16 +50,16 @@ export default function TrackList() {
 
   return (
     <div class="min-h-screen bg-gray-900 text-white p-8">
-      <div class="mb-4">
+      <div class="mb-4 flex justify-between">
         <input
           type="text"
-          class="px-2 py-1 border rounded bg-gray-800 text-white"
+          class="flex-grow px-2 py-1 border rounded bg-gray-800 text-white"
           placeholder="Search by title"
           value={searchQuery()}
           onInput={(e) => setSearchQuery(e.target.value)}
         />
         <select
-          class="px-2 py-1 ml-2 border rounded bg-gray-800 text-white"
+          class="flex px-2 py-1 ml-2 border rounded bg-gray-800 text-white"
           value={sortKey()}
           onChange={(e) => setSortKey(e.target.value)}
         >
@@ -71,13 +69,13 @@ export default function TrackList() {
           <option value="year">Year</option>
         </select>
         <button
-          class="px-2 py-1 ml-2 border rounded bg-gray-800 text-white"
+          class="flex px-2 py-1 ml-2 border rounded bg-gray-800 text-white"
           onClick={() => setSortDirection(sortDirection() === 'asc' ? 'desc' : 'asc')}
         >
           {sortDirection() === 'asc' ? '↑' : '↓'}
         </button>
         <button
-          class="px-2 py-1 ml-2 border rounded bg-gray-800 text-white"
+          class="flex px-2 py-1 ml-2 border rounded bg-gray-800 text-white"
           onClick={() => setDisplayMode(saveMode(displayMode() === 'widget' ? 'list' : 'widget'))}
         >
           Toggle Display Mode: {displayMode() === 'widget' ? 'Widget' : 'List'}

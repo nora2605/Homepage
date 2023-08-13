@@ -1,6 +1,6 @@
 import { Ref, createSignal } from 'solid-js';
 
-function AudioPlayer({ src, ...props }: {src: string, class: string}) {
+function AudioPlayer({ src, ...props }: {src: string, class?: string }) {
   const [isPlaying, setIsPlaying] = createSignal(false);
   const [currentTime, setCurrentTime] = createSignal(0);
   const [duration, setDuration] = createSignal(0);
