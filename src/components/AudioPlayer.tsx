@@ -127,7 +127,7 @@ how to remove the virtical space around the range input in IE*/
           />
         </div>
         <div class="text-gray-400">
-          {(currentTime() / 60).toFixed(0)}:{(currentTime() % 60).toFixed(2)} / {(duration()/60).toFixed(0)}:{(duration() % 60).toFixed(2)}
+          {Math.floor(currentTime() / 60).toFixed(0)}:{(currentTime() % 60).toFixed(2)} / {Math.floor(duration()/60).toFixed(0)}:{(duration() % 60).toFixed(2)}
         </div>
       </div>
       <input
