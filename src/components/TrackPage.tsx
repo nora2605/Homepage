@@ -10,7 +10,7 @@ export default function TrackPage({ track }: { track: Track }) {
     <div class="p-4">
       <h1 class="text-3xl font-semibold mb-4">{track.title}</h1>
       <div class="flex">
-        <div class="flex-grow">
+        <div class="flex-grow hidden sm:block">
           <div class="flex-row">
             <div class="flex-grow">
               <Show
@@ -36,7 +36,7 @@ export default function TrackPage({ track }: { track: Track }) {
             </div>
           </div>
         </div>
-        <div class="p-4 bg-gray-900 rounded-md basis-1/3">
+        <div class="p-4 bg-gray-900 rounded-md sm:basis-1/3">
           <div class="text-white border bg-gray-700 p-5 mb-6 break-normal rounded-md">
             <p class="mb-2">
               <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">

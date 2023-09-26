@@ -8,8 +8,8 @@ export default function Header() {
     { label: "Music", href: "/music" },
     { label: "Art", href: "/art" },
     { label: "Open Source", href: "/open-source" },
-    { label: "Games", href: "/games" },
     { label: "Books", href: "/books" },
+    { label: "Games", href: "https://secrav.luemir.xyz/", external: true },
     { label: "Blog", href: "https://blog.luemir.xyz", external: true },
     { label: "About", href: "/about" },
   ];
@@ -32,6 +32,7 @@ export default function Header() {
                 src="/favicon.ico"
                 elementtiming={""}
                 fetchpriority={"high"}
+                alt="icon"
               />
               <A
                 class="max-6-xs text-3xl text-sky-300 font-thin uppercase my-16"
@@ -42,25 +43,29 @@ export default function Header() {
             </div>
             <div class="hidden ml-5 md:flex space-x-3">
               {menuItems.map((item) =>
-                item.external ? (
-                  <a
-                    class="inline-flex items-center transition px-1 pt-1 border-b-2 text-sm font-medium text-red-300 border-transparent hover:border-gray-500"
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <A
-                    class={`${active(
-                      item.href
-                    )} inline-flex transition items-center px-1 pt-1 border-b-2 text-sm font-medium text-gray-100`}
-                    href={item.href}
-                  >
-                    {item.label}
-                  </A>
-                )
+                item.external
+                  ? (
+                    <a
+                      class="inline-flex items-center transition px-1 pt-1 border-b-2 text-sm font-medium text-red-300 border-transparent hover:border-gray-500"
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.label}
+                    </a>
+                  )
+                  : (
+                    <A
+                      class={`${
+                        active(
+                          item.href,
+                        )
+                      } inline-flex transition items-center px-1 pt-1 border-b-2 text-sm font-medium text-gray-100`}
+                      href={item.href}
+                    >
+                      {item.label}
+                    </A>
+                  )
               )}
             </div>
             <div class="md:hidden ml-5 flex space-x-3">
@@ -120,25 +125,29 @@ export default function Header() {
           </div>
           <div class="px-2 pt-2 pb-3 space-y-1">
             {menuItems.map((item) =>
-              item.external ? (
-                <a
-                  class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gray-100 hover:bg-gray-500"
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <A
-                  class={`${active(
-                    item.href
-                  )} border-b-2 block px-3 py-2 text-base font-medium text-gray-300 hover:text-gray-100 hover:bg-gray-500`}
-                  href={item.href}
-                >
-                  {item.label}
-                </A>
-              )
+              item.external
+                ? (
+                  <a
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gray-100 hover:bg-gray-500"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.label}
+                  </a>
+                )
+                : (
+                  <A
+                    class={`${
+                      active(
+                        item.href,
+                      )
+                    } border-b-2 block px-3 py-2 text-base font-medium text-gray-300 hover:text-gray-100 hover:bg-gray-500`}
+                    href={item.href}
+                  >
+                    {item.label}
+                  </A>
+                )
             )}
           </div>
         </div>
