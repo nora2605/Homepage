@@ -1,7 +1,7 @@
 import { Show } from "solid-js";
 import AudioPlayer from "./AudioPlayer";
-import { Track } from "./TrackList";
 import { apiroot } from "~/root";
+import { Track } from "~/routes/music";
 
 export default function TrackPage({ track }: { track: Track }) {
   const isMediaAvailable = (mediaType: keyof Track) => !!track[mediaType];

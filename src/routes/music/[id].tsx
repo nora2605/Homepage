@@ -1,8 +1,8 @@
 import { Show, createMemo, createResource } from "solid-js";
 import { useParams } from "solid-start";
-import { Track } from "~/components/TrackList";
 import TrackPage from "~/components/TrackPage";
 import { apiroot } from "~/root";
+import { Track } from ".";
 
 export default function Music() {
   const params = useParams();
