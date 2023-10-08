@@ -49,7 +49,7 @@ export default function About() {
             Email: nora.ja2605@gmail.com
           </A>
         </li>
-        <li>Discord: Nora2605#3789 (feel free to add me!)</li>
+        <li>Discord: @nora2605 (feel free to add me!)</li>
       </ul>
       <p class="t-2">ChatGPT wrote this btw</p>
     </main>

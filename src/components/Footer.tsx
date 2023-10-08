@@ -6,6 +6,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { A } from "solid-start";
 
 export default function Footer() {
   const socialLinks = [
@@ -22,6 +23,9 @@ export default function Footer() {
         <div class="text-gray-300 text-sm">
           &copy; Nora J.F., {new Date().getFullYear()}
         </div>
+        <A href="/impressum" class="text-gray-300 text-sm">
+          All works are licensed under CC-BY 4.0 unless otherwise stated.
+        </A>
         <div class="flex space-x-1">
           {socialLinks.map((link) => (
             <a href={link.href} target="_blank" rel="noopener noreferrer">
