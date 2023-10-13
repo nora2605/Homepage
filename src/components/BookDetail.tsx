@@ -26,7 +26,7 @@ export default function BookDetail(
           </div>
           <div class="flex flex-wrap overflow-hidden mt-4">
             <a
-              href={`${apiroot}/books/${props.book.id}`}
+              href={`${apiroot}/lit/${props.book.id}`}
               class="mr-2"
             >
               <button class="flex items-center px-4 py-2 border rounded bg-gray-700 text-white">
