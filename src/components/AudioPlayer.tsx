@@ -20,6 +20,8 @@ function AudioPlayer({ src, ...props }: {src: string, class?: string }) {
     setDuration(audioRef.duration);
   };
 
+  setInterval(handleTimeUpdate, 20);
+
   return (
     <div {...props}>
       <style>{`input[type=range] {
@@ -142,7 +144,7 @@ how to remove the virtical space around the range input in IE*/
           setCurrentTime(Number(event.target.value));
         }}
       />
-      <audio ref={audioRef} src={src} preload="auto" onTimeUpdate={handleTimeUpdate}>
+      <audio ref={audioRef} src={src} preload="auto">
         Your browser does not support the audio element.
       </audio>
     </div>

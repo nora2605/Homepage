@@ -1,5 +1,5 @@
 import { createMemo, createResource, Show } from "solid-js";
-import { Track } from "./TrackList";
+import { Track } from "../routes/music/index";
 import { apiroot } from "~/root";
 import AudioPlayer from "./AudioPlayer";
 import { A } from "solid-start";
@@ -13,8 +13,9 @@ export default function TrackDetail(
 
   return (
     <>
-      <Show when={props.displayMode === "widget"}>
-        <div class="flex p-4 bg-gray-800 text-white transition hover:bg-gray-700 border border-gray-600 shadow-md transform">
+      <div class="flex-col p-4 bg-gray-800 text-white transition hover:bg-gray-700 border border-gray-600 shadow-md transform">
+        <Show when={props.displayMode === "widget"}>
+          <div class="flex flex-wrap overflow-hidden">
           <div class="w-1/4">
             <img
               src={isMediaAvailable("image")
@@ -145,32 +146,24 @@ export default function TrackDetail(
                   </a>
                 </Show>
               </div>
-              <Show when={isMediaAvailable("audio")}>
-                <AudioPlayer
-                  src={`${apiroot}/music/${props.track.id}/audio`}
-                  class="mt-4"
-                />
-              </Show>
             </div>
           </div>
-        </div>
-      </Show>
-      <Show when={props.displayMode === "list"}>
-      <div class="p-4 bg-gray-800 text-white transition hover:bg-gray-700 border border-gray-600 shadow-md transform">
-        <A href={`/music/${props.track.id}`}>
-          <h2 class="text-xl font-semibold mb-2">{track().title}</h2>
-          <p class="text-gray-400 mb-1">Year: {track().year}</p>
-          <p class="text-gray-400">Genre: {track().genre}</p>
-          
-        </A>
-        <Show when={isMediaAvailable("audio")}>
-            <AudioPlayer
-              src={`${apiroot}/music/${props.track.id}/audio`}
-              class="mt-4"
-            />
+          </div>
         </Show>
-        </div>
-      </Show>
+        <Show when={props.displayMode === "list"}>
+          <A href={`/music/${props.track.id}`}>
+            <h2 class="text-xl font-semibold mb-2">{track().title}</h2>
+            <p class="text-gray-400 mb-1">Year: {track().year}</p>
+            <p class="text-gray-400">Genre: {track().genre}</p>
+          </A>
+        </Show>
+      <Show when={isMediaAvailable("audio")}>
+          <AudioPlayer
+            src={`${apiroot}/music/${props.track.id}/audio`}
+            class="mt-4"
+          />
+        </Show>
+      </div>
     </>
   );
 }
