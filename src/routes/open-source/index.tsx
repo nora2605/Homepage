@@ -30,18 +30,6 @@ export default function OpenSource() {
         </li>
       </ul>
       {/*Insert awesome cool SVG that shows coding*/}
-      <svg
-        width="100"
-        height="100"
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect x="10" y="10" width="80" height="80" rx="10" fill="#1A202C" />
-        <path d="M20 20H80V80H20V20Z" stroke="#CBD5E0" stroke-width="2" />
-        <path d="M20 20L80 80" stroke="#CBD5E0" stroke-width="2" />
-        <path d="M20 80L80 20" stroke="#CBD5E0" stroke-width="2" />
-      </svg>
     </main>
   );
 }

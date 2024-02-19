@@ -8,9 +8,12 @@ const Home: Component = () => {
       <div class="flex flex-col md:flex-row">
         <div>
           <p class="text-lg mb-8">
-            This is a homepage for all my projects, intellectual property, and
-            interests. Use the navigation menu to explore the different sections
-            of the website.
+            Hi I'm Nora! I'm known online as nora2605, Lümir/Luemir Nijimi or Nora Judith.
+            I'm a hobbyist everything-doer, jack of all trades, consumer and creator and a self-proclaimed goddess and seraph.
+            This will eventually be a homepage for all my projects, intellectual property, and
+            interests. Use the navigation menu to explore a little.
+            <br/>
+            Keep in mind, this website is still under construction, so some pages may not be available yet.
           </p>
           <h2 class="text-2xl font-bold mb-2">My Projects (Navigation)</h2>
           <ul class="list-disc list-inside mb-8 ml-4">
