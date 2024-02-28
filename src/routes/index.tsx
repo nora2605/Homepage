@@ -15,6 +15,10 @@ const Home: Component = () => {
             <br/>
             Keep in mind, this website is still under construction, so some pages may not be available yet.
           </p>
+          <p class="mx-4 my-8 font-bold text-center flex flex-col">
+            You're visitor number<br/>
+            <img class="m-auto" src="https://count.getloli.com/get/@luemir.xyz" alt="luemir.xyz" elementtiming={""} fetchpriority={"high"} />
+          </p>
           <h2 class="text-2xl font-bold mb-2">My Projects (Navigation)</h2>
           <ul class="list-disc list-inside mb-8 ml-4">
             <li>
