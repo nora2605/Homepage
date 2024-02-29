@@ -1,6 +1,8 @@
+import Tesseract from "~/components/Tesseract";
+
 export default function OpenSource() {
   return (
-    <main class="text-gray-100 px-4 mx-auto pt-24 justify-center self-center justify-items-center content-center">
+    <main class="text-gray-100 px-4 mx-auto pt-24 justify-center self-center justify-items-center content-center overflow-hidden">
       <h1 class="text-4xl font-bold mb-4 text-white">
         My Open Source Projects
       </h1>
@@ -29,7 +31,10 @@ export default function OpenSource() {
           </a>
         </li>
       </ul>
-      {/*Insert awesome cool SVG that shows coding*/}
+      <h2 class="text-2xl font-bold mb-2">Awesome ass rotating CSS Tesseract but every face is a rotating CSS Cube:</h2>
+      <div class="overflow-hidden flex flex-row lg:min-w-[1000px] items-center justify-center lg:min-h-[1000px] m-auto">
+        <Tesseract />
+      </div>
     </main>
   );
 }
