@@ -1,6 +1,6 @@
 import { Show } from "solid-js";
 import AudioPlayer from "./AudioPlayer";
-import { apiroot } from "~/root";
+import { apiroot } from "~/app";
 import { Track } from "~/routes/music";
 
 export default function TrackPage({ track }: { track: Track }) {

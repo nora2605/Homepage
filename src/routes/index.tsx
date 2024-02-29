@@ -1,10 +1,10 @@
-import { A } from "solid-start";
+import { A } from "@solidjs/router";
 import { Component } from "solid-js";
 
 const Home: Component = () => {
   return (
     <main class="text-[aliceblue] px-4 py-8">
-      <h1 class="text-4xl font-bold mb-4">Welcome to My Website</h1>
+      <h1 class="text-4xl font-bold mb-4">Hey! I'm Nora👋</h1>
       <div class="flex flex-col md:flex-row">
         <div>
           <p class="text-lg mb-8">
@@ -18,6 +18,16 @@ const Home: Component = () => {
           <p class="mx-4 my-8 font-bold text-center flex flex-col">
             You're visitor number<br/>
             <img class="m-auto" src="https://count.getloli.com/get/@luemir.xyz" alt="luemir.xyz" elementtiming={""} fetchpriority={"high"} />
+          </p>
+          <h2 class="text-2xl font-bold mb-2">What I do</h2>
+          <p class="text-lg mb-8">
+            I do a lot of things, but most of them are creative. I make music, art, games, and conlangs.
+            I also write stories and code; including working on my own programming language.
+            Chances are, if you have a hobby, you can convince me to do it as well.
+          </p>
+          <p class="text-lg mb-8">
+            If I'm not very online right now, I'm probably touching grass by doing archery, playing instruments (collection on my blog)
+            or working/studying for my computer science degree.
           </p>
           <h2 class="text-2xl font-bold mb-2">My Projects (Navigation)</h2>
           <ul class="list-disc list-inside mb-8 ml-4">
@@ -35,13 +45,8 @@ const Home: Component = () => {
               <A class="text-sky-300 hover:text-gray-600" href="/art">My Art</A>
             </li>
             <li>
-              <A class="text-sky-300 hover:text-gray-600" href="/opensource">
+              <A class="text-sky-300 hover:text-gray-600" href="/open-source">
                 My Open Source Projects
-              </A>
-            </li>
-            <li>
-              <A class="text-sky-300 hover:text-gray-600" href="/games">
-                My Games
               </A>
             </li>
             <li>
@@ -64,6 +69,7 @@ const Home: Component = () => {
             src="/ntc.png"
             elementtiming={""}
             fetchpriority={"high"}
+            alt="Drawing of Nora"
           >
             Drawing of Nora
           </img>

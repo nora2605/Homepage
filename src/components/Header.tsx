@@ -1,5 +1,5 @@
+import { A, useLocation } from "@solidjs/router";
 import { createSignal } from "solid-js";
-import { A, useLocation } from "solid-start";
 
 export default function Header() {
   const menuItems = [

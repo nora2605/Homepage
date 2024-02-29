@@ -1,15 +1,12 @@
 import {
-  createEffect,
+  createResource,
   createSignal,
   For,
-  onCleanup,
   onMount,
-  Show,
   Suspense,
 } from "solid-js";
-import { createRouteData, useNavigate, useRouteData } from "solid-start";
 import TrackDetail from "~/components/TrackDetail";
-import { apiroot } from "~/root";
+import { apiroot } from "~/app";
 
 export interface Track {
   id: string;
@@ -28,29 +25,19 @@ export interface Track {
   original: boolean;
 }
 
-export function routeData() {
-  return createRouteData(async () => {
-    const res = await fetch(apiroot + "/music/list");
-    return await res.json() as Track[];
-  });
-}
-
 export default function Music() {
-  const tracks = useRouteData<typeof routeData>();
+  const [tracks] = createResource(async () => {
+    const res = await fetch(apiroot + "/music/list");
+    return (await res.json()) as Track[];
+  });
   const [searchQuery, setSearchQuery] = createSignal("");
   const [sortKey, setSortKey] = createSignal("title"); // Default sorting by title
   const [sortDirection, setSortDirection] = createSignal("asc"); // Default sorting in ascending order
   const [displayMode, setDisplayMode] = createSignal("list"); // Retrieve from Local Storage
 
   onMount(() => {
-    setDisplayMode(localStorage.getItem("displayMode") || "list");
+    setDisplayMode(localStorage?.getItem("displayMode") || "list");
   });
-
-  const saveMode = (mode: "list" | "widget") => {
-    localStorage.setItem("displayMode", mode);
-    return mode;
-  };
-
   const sortedTracks = () => {
     return tracks()?.filter((track) =>
       track.title.toLowerCase().includes(searchQuery().toLowerCase())
@@ -72,13 +59,6 @@ export default function Music() {
         }
       });
   };
-  onCleanup(() => {
-    localStorage.setItem("displayMode", displayMode());
-  });
-
-  createEffect(() => {
-    localStorage.setItem("displayMode", displayMode());
-  });
   return (
     <main class="text-gray-100 px-4 mx-auto pt-24 justify-center self-center justify-items-center content-center">
       <div class="text-xl">
@@ -135,7 +115,7 @@ export default function Music() {
             class="flex px-2 py-1 ml-2 border rounded bg-gray-800 text-white"
             onClick={() =>
               setDisplayMode(
-                saveMode(displayMode() === "widget" ? "list" : "widget"),
+                displayMode() === "widget" ? "list" : "widget",
               )}
           >
             Toggle Display Mode:{" "}

@@ -1,5 +1,5 @@
 import { Book } from "../routes/books/index";
-import { apiroot } from "~/root";
+import { apiroot } from "~/app";
 
 export default function BookDetail(
   props: { book: Book },

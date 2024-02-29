@@ -6,7 +6,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { A } from "solid-start";
+import { A } from "@solidjs/router";
 
 export default function Footer() {
   const socialLinks = [

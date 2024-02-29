@@ -1,8 +1,8 @@
 import { createMemo, createResource, Show } from "solid-js";
 import { Track } from "../routes/music/index";
-import { apiroot } from "~/root";
+import { apiroot } from "~/app";
 import AudioPlayer from "./AudioPlayer";
-import { A } from "solid-start";
+import { A } from "@solidjs/router";
 
 export default function TrackDetail(
   props: { track: Track; displayMode: "list" | "widget" },
