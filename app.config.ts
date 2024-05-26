@@ -1,10 +1,13 @@
 import { defineConfig } from "@solidjs/start/config";
+import UnoCSS from "unocss/vite";
 
 export default defineConfig({
-    server: {
-        preset: "vercel",
-        prerender: {
-            routes: ["/", "/about"]
-        }
+  vite: {
+    plugins: [UnoCSS()]
+  },
+  server: {
+    prerender: {
+      routes: ["/", "/about"]
     }
+  }
 });

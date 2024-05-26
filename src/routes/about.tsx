@@ -1,4 +1,5 @@
 import { A } from "@solidjs/router";
+import "./about.css";
 
 export default function About() {
   return (

@@ -65,7 +65,7 @@ const Home: Component = () => {
         </div>
         <div class="object-contain flex flex-col md:w-full">
           <img
-            class="object-contain"
+            class="object-contain rounded-lg shadow-lg w-full h-auto md:w-full md:h-auto"
             src="/ntc.png"
             elementtiming={""}
             fetchpriority={"high"}

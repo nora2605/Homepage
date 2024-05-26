@@ -1,11 +1,12 @@
-// @refresh reload
+import "@unocss/reset/tailwind.css";
+import "virtual:uno.css";
+
 import { Router, useLocation } from "@solidjs/router";
-import { FileRoutes } from "@solidjs/start";
-import { Meta, MetaProvider, Title } from "@solidjs/meta";
+import { FileRoutes } from "@solidjs/start/router";
 import { Component, Suspense } from "solid-js";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import "./app.css";
+import { Meta, MetaProvider, Title } from "@solidjs/meta";
+import Header from "~/components/Header";
+import Footer from "~/components/Footer";
 
 export const apiroot = "https://api.luemir.xyz/api";
 
