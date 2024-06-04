@@ -7,7 +7,7 @@ export default defineConfig({
   },
   server: {
     prerender: {
-      routes: ["/", "/about"]
+      crawlLinks: true // vercel issue, doesn't currently support vinxi so everything needs to SSR to html in the static output folder
     }
   }
 });
