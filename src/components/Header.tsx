@@ -9,7 +9,7 @@ export default function Header() {
     { label: "Art", href: "/art" },
     { label: "Open Source", href: "/open-source" },
     { label: "Books", href: "/books" },
-    { label: "Games", href: "https://secrav.luemir.xyz/", external: true },
+    { label: "Games", href: "/games" },
     { label: "Blog", href: "https://blog.luemir.xyz", external: true },
     { label: "About", href: "/about" },
   ];
