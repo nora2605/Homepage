@@ -130,13 +130,13 @@ how to remove the virtical space around the range input in IE*/
         </div>
         <div class="text-gray-400">
           {isNaN(duration()) ? "0:00 / ??" : `${
-              Math.floor(currentTime() / 60).toFixed(0)
+            Math.floor(currentTime() / 60).toFixed(0).padStart(2, "0")
             }:${
-              (currentTime() % 60).toFixed(2)
+            (currentTime() % 60).toFixed(2).padStart(5, "0")
             } / ${
-              Math.floor(duration()/60).toFixed(0)
+            Math.floor(duration() / 60).toFixed(0).padStart(2, "0")
             }:${
-              (duration() % 60).toFixed(2)
+            (duration() % 60).toFixed(2).padStart(5, "0")
             }`}
         </div>
       </div>
