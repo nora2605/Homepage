@@ -64,12 +64,6 @@ export default function TrackPage({ track }: { track: Track }) {
             </p>
             <p class="mb-2">
               <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
-                Duration:
-              </b>{" "}
-              {track.duration} seconds
-            </p>
-            <p class="mb-2">
-              <b class="font-black underline decoration-zinc-500 decoration-4 underline-offset-4">
                 Description:
               </b>{" "}
               {track.description}
