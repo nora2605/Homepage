@@ -122,20 +122,22 @@ export default function Music() {
             {displayMode() === "widget" ? "Widget" : "List"}
           </button>
         </div>
-        <ul>
-          <Suspense>
-          <For each={sortedTracks()}>
-            {(track) => (
-              <li class="mb-4">
-                <TrackDetail
-                  track={track}
-                  displayMode={displayMode() as "list" | "widget"}
-                />
-              </li>
-            )}
-          </For>
-          </Suspense>
-        </ul>
+        <Suspense fallback={
+          <div class="text-xl">Music Loading...</div>
+        }>
+          <ul>
+            <For each={sortedTracks()}>
+              {(track) => (
+                <li class="mb-4">
+                  <TrackDetail
+                    track={track}
+                    displayMode={displayMode() as "list" | "widget"}
+                  />
+                </li>
+              )}
+            </For>
+          </ul>
+        </Suspense>
       </div>
     </main>
   );

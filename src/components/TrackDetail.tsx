@@ -1,4 +1,4 @@
-import { createMemo, createResource, Show } from "solid-js";
+import { Show } from "solid-js";
 import { Track } from "../routes/music/index";
 import { apiroot } from "~/app";
 import AudioPlayer from "./AudioPlayer";
@@ -34,7 +34,9 @@ export default function TrackDetail(
                 <p class="text-gray-300 mb-1">{track().album}</p>
                 <p class="text-gray-300 mb-1">Year: {track().year}</p>
                 <p class="text-gray-300">Genre: {track().genre}</p>
-                <p class="text-gray-300">Opus Number: {track().opusNumber}</p>
+                <Show when={track().opusNumber}>
+                  <p class="text-gray-300">Opus Number: {track().opusNumber}</p>
+                </Show>
               </A>
               <div>
                 <p class="text-gray-400 mt-4">{track().description}</p>

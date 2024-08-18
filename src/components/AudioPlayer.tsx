@@ -129,7 +129,15 @@ how to remove the virtical space around the range input in IE*/
           />
         </div>
         <div class="text-gray-400">
-          {Math.floor(currentTime() / 60).toFixed(0)}:{(currentTime() % 60).toFixed(2)} / {Math.floor(duration()/60).toFixed(0)}:{(duration() % 60).toFixed(2)}
+          {isNaN(duration()) ? "0:00 / ??" : `${
+              Math.floor(currentTime() / 60).toFixed(0)
+            }:${
+              (currentTime() % 60).toFixed(2)
+            } / ${
+              Math.floor(duration()/60).toFixed(0)
+            }:${
+              (duration() % 60).toFixed(2)
+            }`}
         </div>
       </div>
       <input
@@ -144,7 +152,7 @@ how to remove the virtical space around the range input in IE*/
           setCurrentTime(Number(event.target.value));
         }}
       />
-      <audio ref={audioRef} src={src} preload="auto">
+      <audio ref={audioRef} src={src} preload="none">
         Your browser does not support the audio element.
       </audio>
     </div>
