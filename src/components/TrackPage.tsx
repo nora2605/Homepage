@@ -14,7 +14,7 @@ export default function TrackPage({ track }: { track: Track }) {
           <div class="flex-row">
             <div class="flex-grow">
               <Show
-                when={isMediaAvailable("score")}
+                when={isMediaAvailable("score") && track.id != "wh"}
                 fallback={
                   <img
                     src={isMediaAvailable("image")
