@@ -1,0 +1,54 @@
+.rainbow {
+    animation: rb 2s infinite linear;
+    font-size: xx-large;
+    margin: auto;
+}
+
+.rainbow:hover {
+    animation: rb 8s infinite linear;
+}
+
+.rainbow::after {
+    content: "<-";
+    font-size: larger;
+    font-family: fantasy, monospace;
+    animation: swipe 1.5s infinite ease-in-out alternate-reverse;
+}
+
+.rainbow::before {
+    content: "->";
+    font-size: larger;
+    font-family: fantasy, monospace;
+    animation: swipe 1.5s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes rb {
+    from { color: red; }
+    10% { color: orange; }
+    20% { color: yellow; }
+    30% { color: green; }
+    50% { color: turquoise; }
+    70% { color: blue; }
+    80% { color: violet; }
+    90% { color: pink; }
+    to { color: red; }
+}
+
+@keyframes swipe {
+    from { margin-left: 0px; margin-right: 0px }
+    to { margin-left: 20px; margin-right: 20px }
+}
+
+.spin {
+    z-index: -1;
+    text-align: center;
+    animation: speen 3s alternate-reverse ease-in-out infinite;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+}
+
+@keyframes speen {
+    from { transform: rotate(-20deg) scale(1); }
+    50% { transform: rotate(0deg) scale(0.8); }
+    to { transform: rotate(20deg) scale(1); }
+}
